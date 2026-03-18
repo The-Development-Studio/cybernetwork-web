@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 
+        SECURITY HEADERS REFERENCE
+        This file provides reference HTML meta tags for security.
+        These are dynamically added by the SEO component in production.
+    -->
+    
+    <!-- Basic Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta name="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com https://www.google-analytics.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        img-src 'self' data: https: figma:asset blob:;
+        font-src 'self' data: https://fonts.gstatic.com;
+        connect-src 'self' https://maps.googleapis.com https://www.google-analytics.com;
+        frame-src 'self' https://maps.google.com;
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+        frame-ancestors 'self';
+        upgrade-insecure-requests;
+    ">
+    
+    <!-- Additional Security Meta Tags -->
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <title>Security Headers Reference - Cyber Network</title>
+</head>
+<body>
+    <h1>Security Headers Reference</h1>
+    <p>This file is for reference only. Security headers are dynamically added by the SEO component.</p>
+    
+    <h2>Implemented Security Features:</h2>
+    <ul>
+        <li><strong>X-Content-Type-Options:</strong> Prevents MIME sniffing</li>
+        <li><strong>X-Frame-Options:</strong> Prevents clickjacking attacks</li>
+        <li><strong>X-XSS-Protection:</strong> Enables browser XSS filter</li>
+        <li><strong>Referrer-Policy:</strong> Controls referrer information</li>
+        <li><strong>Permissions-Policy:</strong> Restricts browser features</li>
+        <li><strong>Content-Security-Policy:</strong> Controls resource loading</li>
+    </ul>
+    
+    <h2>Server-Side Headers (Apache):</h2>
+    <pre>
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    </pre>
+    
+    <h2>Server-Side Headers (Nginx):</h2>
+    <pre>
+add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+add_header X-Frame-Options "SAMEORIGIN" always;
+add_header X-Content-Type-Options "nosniff" always;
+add_header X-XSS-Protection "1; mode=block" always;
+add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
+    </pre>
+</body>
+</html>
